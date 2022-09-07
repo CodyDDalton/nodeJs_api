@@ -1,0 +1,34 @@
+{
+  "name": "nodejs_api",
+  "version": "1.0.0",
+  "description": "NodeJS Api",
+  "main": "server.js",
+  "scripts": {
+    "test": "jest --coverage",
+    "start": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/DaltonCody-FS/nodeJs_api.git"
+  },
+  "keywords": [
+    "NodeJS",
+    "Restful",
+    "API"
+  ],
+  "author": "Eric Clarke",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DaltonCody-FS/nodeJs_api/issues"
+  },
+  "homepage": "https://github.com/DaltonCody-FS/nodeJs_api#readme",
+  "dependencies": {
+    "axios": "^0.27.2",
+    "dotenv": "^16.0.2",
+    "express": "^4.18.1"
+  },
+  "devDependencies": {
+    "jest": "^29.0.2",
+    "nodemon": "^2.0.19"
+  }
+}
