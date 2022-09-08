@@ -5,10 +5,19 @@ const { apiFindService } = require("../services/apiFindService");
 const app = express();
 
 app.get("/", (req,res) => {
-    res.status(200).json({ message: "Service is up"})
+    apiFindService().then(result => {
+        res.status(200).json(result.data);
+    })
+    .catch(error => {
+        res.status(500).json({
+            error:{
+                message: error.message,
+            },
+        });
+    });
 });
 
-app.use("/", apiFindRouter);
+app.use("/api", apiFindRouter);
 
 app.use((req, res, next) => {
     const error = new Error("Not found!");
