@@ -1,17 +1,19 @@
 const { apiFindService, apiFindServiceById } = require("./apiFindService");
 
+//to run mock test, uncomment jest.mock and 
+//remove .data from all result.data.entries and rest.data.categories
+//change expected toHaveLength from 1425 to 10
+
 jest.mock("./apiFindService");
 
 describe("Api Find Service Test", () => {
-    //I should get a listing of 1425 APIs
-    test("I should get a listing of 10 APIs", async () => {
+    test("I should get a listing of 1425 APIs live, 10 mocked", async () => {
         const result = await apiFindService();
-        //expect(result.data.entries).toHaveLength(1425);
-        expect(result.data).toHaveLength(10);
-        expect(result.data[1].Category).toEqual("Animals");
-        expect(result.data[1].API).toEqual("Axolotl");
-        expect(result.data[1].Cors).toEqual("no");
-        expect(result.data[1].HTTPS).toEqual(true);
+        expect(result.entries).toHaveLength(10);
+        expect(result.entries[1].Category).toEqual("Animals");
+        expect(result.entries[1].API).toEqual("Axolotl");
+        expect(result.entries[1].Cors).toEqual("no");
+        expect(result.entries[1].HTTPS).toEqual(true);
     });
 
     test("I should get an API object by Id", async () => {

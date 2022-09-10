@@ -17,7 +17,7 @@ app.get("/", (req,res) => {
     });
 });
 
-app.use("/api", apiFindRouter);
+app.use("/", apiFindRouter);
 
 app.use((req, res, next) => {
     const error = new Error("Not found!");
